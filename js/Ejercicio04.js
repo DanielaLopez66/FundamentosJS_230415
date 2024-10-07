@@ -204,3 +204,60 @@ console.log(`El septimo signo zodiacal es: ${signo7}`)
 
 //Congelamos el arreglo volviendo INMUTABLE;
 Object.freeze(signosZodiacales);
+
+//Filtrado de datos
+console.log("%c11.- Filtrado de elemento dentro de un arreglo utilizando el metodo FILTER", style_console);
+
+console.log(estudiantes);
+//Antes de filtrar datos llenemos el arreglo con 10 elementos 
+
+estudiantes.push("Angel Rufino");
+estudiantes.push("Esther Gonzalez");
+estudiantes.push("Lorena Galindo ");
+estudiantes.push("Jonathan Ramirez");
+estudiantes.push("Aiton Artiaga");
+estudiantes.push("Tania Ibarra");
+console.table(estudiantes);
+
+Object.freeze(estudiantes);
+
+//Filtrar es un metodo que recorre los elementos de un arreglo haciendo alguna tareaen especifico, lo que tenemos que considerar es que este nuevo arreglo realmente es un objeto nuevo que puede ser mutable
+
+console.log("Filtrando los primeros 5 elementos")
+let nuevoEstudiantes = estudiantes.filter((estudiante, index)=>index<5);
+console.table(nuevoEstudiantes);
+console.table(filtraPrimeros5(estudiantes));
+
+//Intentamos modificar el arreglo inmutable
+//estudiantes.pop();
+//console.table(estudiantes);
+
+//Intentemos modificar el nuevo arreglo que no ha sido completado
+nuevoEstudiantes.unshift("Diego Tecorralco");
+console.table(nuevoEstudiantes);
+
+function filtraPrimeros5(arregloEstudiantes)
+{
+    let listaFiltrada=[]
+    for(let i=0; i<5;i++)
+    {
+        listaFiltrada.push(arregloEstudiantes[i]);
+
+    }
+    return listaFiltrada;
+}
+
+//Filtrado de datos 
+console.log("%c12.- Filtrado de elemento dentro de un arreglo utilizando el metodo MAP, en el que necesitamos transformarlos", style_console);
+console.log("Imprimimos los elementos actuales de signoZodiacales");
+console.table(signosZodiacales);
+//Que podemos hacer si necesitamos el mismo arreglo pero ahora con todos sus elementos con letras MAYUSCULAS
+console.table(signosZodiacales.map(signosZodiacales=>signosZodiacales.toUpperCase()));
+
+//Reduccion de elementos de un arreglo se usa cuando debemos hacer operaciones matematicas o cuantitativas a un arreglo, como obtener totales, la idea es reducir la lista a un valor mas simplificado
+
+const costoListaCompras = [15,52,32,95,10,85,14,20,66,94,25]
+//Como podemos calcular el total de una lista de costos de un carrito de compras
+console.log("Los precios son:")
+console.table(costoListaCompras);
+console.log(`El total de la compra es: ${costoListaCompras.reduce((total,precio)=>total+precio,0).toFixed(2)}`)
