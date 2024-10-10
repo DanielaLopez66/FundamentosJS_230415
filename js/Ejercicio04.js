@@ -253,7 +253,7 @@ console.log("Imprimimos los elementos actuales de signoZodiacales");
 console.table(signosZodiacales);
 //Que podemos hacer si necesitamos el mismo arreglo pero ahora con todos sus elementos con letras MAYUSCULAS
 console.table(signosZodiacales.map(signosZodiacales=>signosZodiacales.toUpperCase()));
-
+console.log("%c13.-REDUCE", style_console);
 //Reduccion de elementos de un arreglo se usa cuando debemos hacer operaciones matematicas o cuantitativas a un arreglo, como obtener totales, la idea es reducir la lista a un valor mas simplificado
 
 const costoListaCompras = [15,52,32,95,10,85,14,20,66,94,25]
